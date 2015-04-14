@@ -63,7 +63,8 @@ anyMapM_ f xs = liftM (const ()) (anyMapM f xs)
 
 
 {-
--- Polykinded Functor instance and associated stuff
+-- Polykinded Functor instance and associated stuff (Heavily based on the
+-- `hask` package).
 data Nat (p :: i -> i -> *) (q :: j -> j -> *) (f :: i -> j) (g :: i -> j) where
   Nat :: forall p q f g. forall a. Ob p a => q (f a) (g a) -> Nat p q f g
 
