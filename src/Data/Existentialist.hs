@@ -4,7 +4,7 @@
            , FlexibleInstances, FlexibleContexts, GADTs
            , PartialTypeSignatures, NamedWildCards
   #-}
-module Data.AnyList
+module Data.Existentialist
   (Existential (..)
   ,AnyList (..)
   ,toExistentials
