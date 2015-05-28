@@ -45,11 +45,11 @@ anyMap :: (forall a. f a -> b) -> AnyList f -> [b]
 anyMap f (x :| xs) = f x : anyMap f xs
 anyMap _ Nil       = []
 
-anyFoldr :: (forall a. a -> b -> b) -> AnyList f -> b -> b
+anyFoldr :: (forall a. f a -> b -> b) -> AnyList f -> b -> b
 anyFoldr f (x :| xs) z = x `f` anyFoldr f xs z
 anyFoldr _ Nil       z = z
 
-anyFoldl' :: (forall a. b -> a -> b) -> AnyList f -> b -> b
+anyFoldl' :: (forall a. b -> f a -> b) -> AnyList f -> b -> b
 anyFoldl' f (x :| xs) z
   = let !z' = f z x
     in
