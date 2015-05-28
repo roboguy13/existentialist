@@ -2,7 +2,8 @@
            , BangPatterns, PatternSynonyms, TypeOperators
            , TypeFamilies, PolyKinds, MultiParamTypeClasses
            , FlexibleInstances, FlexibleContexts, GADTs
-           , PartialTypeSignatures, NamedWildCards #-}
+           , PartialTypeSignatures, NamedWildCards
+  #-}
 module Data.AnyList
   (Existential (..)
   ,AnyList (..)
