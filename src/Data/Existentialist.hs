@@ -22,8 +22,6 @@ module Data.Existentialist
   where
 
 import Control.Monad hiding (Functor, fmap)
-import Prelude hiding (Functor, (.), id, fmap)
-import qualified Prelude
 
 import Data.Foldable (Foldable)
 import qualified Data.Foldable as F
@@ -65,6 +63,12 @@ constrMap f CNil      = []
 
 constrMapM :: Monad m => (forall a. c a => a -> m b) -> ConstrList c -> m [b]
 constrMapM f = sequence . constrMap f
+
+{-
+  -- Doesn't work, even with the definition as undefined (?)
+constrMapM_ :: Monad m => (forall a. c a => a -> m b) -> ConstrList c -> m ()
+constrMapM_ = undefined
+ -}
 
 test :: ConstrList Show
 test = 1 :> 'a' :> () :> CNil
