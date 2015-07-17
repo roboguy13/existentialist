@@ -8,6 +8,7 @@
 module Data.Existentialist
   (Existential (..)
   ,AnyList (..)
+  ,ConstrList (..)
   ,toExistentials
   ,fromExistentials
   ,anyMap
@@ -15,6 +16,8 @@ module Data.Existentialist
   ,anyFoldl'
   ,anyMapM
   ,anyMapM_
+  ,constrMap
+  ,constrMapM
   )
   where
 
@@ -91,6 +94,7 @@ test = anyMapM_ printIt $ [Just 'a', Nothing]
     printIt _        = putStrLn "nothing"
 -}
 
+{-
 -- Polykinded Functor instance and associated stuff (Heavily based on the
 -- `hask` package).
 data Nat (p :: i -> i -> *) (q :: j -> j -> *) (f :: i -> j) (g :: i -> j) where
@@ -116,7 +120,6 @@ class (Category (Dom f), Category (Cod f)) => Functor (f :: i -> j) where
   type Cod f :: j -> j -> *
 
   fmap :: Dom f a b -> Cod f (f a) (f b)
-{-
 instance Functor (Either a) where
   type Dom (Either a) = (->)
   type Cod (Either a) = (->)
