@@ -66,6 +66,7 @@ constrMapM f = sequence . constrMap f
 
 {-
   -- Doesn't work, even with the definition as undefined (?)
+  -- See the discussion here: https://ghc.haskell.org/trac/ghc/ticket/10651
 constrMapM_ :: Monad m => (forall a. c a => a -> m b) -> ConstrList c -> m ()
 constrMapM_ = undefined
  -}
